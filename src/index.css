@@ -1,0 +1,16 @@
+/* Reset */
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #020606;
+}
+
+/* Links */
+
+li .active {
+    background-color: #d2a1d6;
+}
