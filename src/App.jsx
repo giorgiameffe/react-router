@@ -6,6 +6,7 @@ import Homepage from './pages/Homepage.jsx';
 import AboutUs from './pages/AboutUs.jsx';
 // Posts list
 import Posts from './pages/Posts.jsx';
+// Default Layout
 import DefaultLayout from "./layouts/DefaultLayout.jsx";
 
 

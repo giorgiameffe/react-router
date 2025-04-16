@@ -13,13 +13,21 @@ export default function Posts() {
 
     useEffect(() => {
         axios.get(postsEndpoint)
-            .then(res => console.log(res.data))
+            .then(res => setPosts(res.data))
+            .catch(error => alert('Qualcosa è andato storto, riprova più tardi'))
     }, [])
 
     return (
         <div>
             <h2>Posts</h2>
+            <ul>
+                {posts.map(post =>
+                    <li key={post.id}>
+                        <h4>{post.title}</h4>
+                        <p>{post.body}</p>
+                    </li>
+                )}
+            </ul>
         </div>
     )
-
 }
