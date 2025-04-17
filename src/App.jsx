@@ -8,6 +8,8 @@ import AboutUs from './pages/AboutUs.jsx';
 import Posts from './pages/Posts.jsx';
 // Default Layout
 import DefaultLayout from "./layouts/DefaultLayout.jsx";
+// Single post
+import SinglePost from "./pages/SinglePost.jsx";
 
 
 function App() {
@@ -17,9 +19,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout />}>
-            <Route path="/" element={<Homepage />}></Route>
-            <Route path="/about-us" element={<AboutUs />}></Route>
-            <Route path="/posts" element={<Posts />}></Route>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/:id" element={<SinglePost />} />
           </Route>
         </Routes>
       </BrowserRouter>
