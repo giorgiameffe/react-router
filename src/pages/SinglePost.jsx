@@ -1,8 +1,11 @@
 // Hooks
 import { useState, useEffect } from "react";
-import { UNSAFE_decodeViaTurboStream, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // Axios
 import axios from "axios";
+// Link
+import { Link } from "react-router-dom";
+import Posts from "./Posts";
 
 // Single Post 
 
@@ -19,6 +22,8 @@ export default function SinglePost() {
     const [error, setError] = useState(null);
 
     const postEndpoint = `${postsEndpoint}/${id}`;
+
+    // funzione chiamata ad API per il singolo post
 
     function getSinglePost() {
         setLoading(true);
@@ -37,11 +42,11 @@ export default function SinglePost() {
     useEffect(getSinglePost, []);
 
     if (loading) {
-        return <div>Loading..</div>
+        return <div>Caricamento..</div>
     }
 
     if (error) {
-        return <div>Error..Page not found!</div>
+        return <div>Errore..Post non trovato</div>
 
     }
 
@@ -49,6 +54,7 @@ export default function SinglePost() {
         <section>
             <h2>{singlePost.title}</h2>
             <p>{singlePost.body}</p>
+            <Link to='/posts'>Torna ai post</Link>
         </section>
     )
 

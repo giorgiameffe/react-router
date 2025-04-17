@@ -10,6 +10,8 @@ import Posts from './pages/Posts.jsx';
 import DefaultLayout from "./layouts/DefaultLayout.jsx";
 // Single post
 import SinglePost from "./pages/SinglePost.jsx";
+// Not Found
+import NotFound from "./pages/NotFound.jsx";
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
             <Route path="/posts" element={<Posts />} />
             <Route path="/posts/:id" element={<SinglePost />} />
           </Route>
+          {/* Rotta catch all */}
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
     </>
