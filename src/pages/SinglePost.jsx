@@ -1,6 +1,6 @@
 // Hooks
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { UNSAFE_decodeViaTurboStream, useParams } from "react-router-dom";
 // Axios
 import axios from "axios";
 
@@ -12,16 +12,38 @@ export default function SinglePost() {
 
     const { id } = useParams();
 
-    const [singlePost, setSinglePost] = useState({});
+    const [singlePost, setSinglePost] = useState(null);
+
+    const [loading, setLoading] = useState(true);
+
+    const [error, setError] = useState(null);
 
     const postEndpoint = `${postsEndpoint}/${id}`;
 
     function getSinglePost() {
+        setLoading(true);
         axios.get(postEndpoint)
-            .then(res => setSinglePost(res.data))
+            .then(res => {
+                setSinglePost(res.data);
+            })
+            .catch(err => {
+                setError(true);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
     }
 
     useEffect(getSinglePost, []);
+
+    if (loading) {
+        return <div>Loading..</div>
+    }
+
+    if (error) {
+        return <div>Error..Page not found!</div>
+
+    }
 
     return (
         <section>

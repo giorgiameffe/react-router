@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 // Axios
 import axios from "axios";
+// Link
+import { Link } from "react-router-dom";
 
 // Posts list
 
@@ -27,7 +29,7 @@ export default function Posts() {
                 {posts.map(post =>
                     <li key={post.id}>
                         <h3>{post.title}</h3>
-                        <p>{post.body}</p>
+                        <Link to={`/posts/${post.id}`}>Clicca qui per maggiori dettagli</Link>
                     </li>
                 )}
             </ul>

@@ -6,11 +6,14 @@ li {
 
 a {
     text-decoration: none;
-    color: #020606;
 }
 
 /* Links */
 
 li .active {
     background-color: #d2a1d6;
+}
+
+nav a {
+    color: #000000;
 }
