@@ -1,11 +1,8 @@
 // Hooks
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // Axios
 import axios from "axios";
-// Link
-import { Link } from "react-router-dom";
-import Posts from "./Posts";
 
 // Single Post 
 
@@ -14,6 +11,9 @@ const postsEndpoint = 'https://jsonplaceholder.typicode.com/posts';
 export default function SinglePost() {
 
     const { id } = useParams();
+
+    // useNavigate per tornare alla pagina precedente
+    const navigate = useNavigate();
 
     const [singlePost, setSinglePost] = useState(null);
 
@@ -39,7 +39,7 @@ export default function SinglePost() {
             })
     }
 
-    useEffect(getSinglePost, []);
+    useEffect(getSinglePost, [id]);
 
     if (loading) {
         return <div>Caricamento..</div>
@@ -54,7 +54,7 @@ export default function SinglePost() {
         <section>
             <h2>{singlePost.title}</h2>
             <p>{singlePost.body}</p>
-            <Link to='/posts'>Torna ai post</Link>
+            <button onClick={() => navigate(-1)}>Torna alla pagina precedente</button>
         </section>
     )
 
