@@ -2,5 +2,10 @@
 
 export default function Homepage() {
 
-    return <h2>Homepage</h2>
+    return (
+
+        <div className="main-container">
+            <h2>Homepage</h2>
+        </div>
+    )
 }

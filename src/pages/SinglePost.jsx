@@ -43,7 +43,7 @@ export default function SinglePost() {
     useEffect(getSinglePost, [id]);
 
     if (loading) {
-        return <div>Caricamento..</div>
+        return <div className="main-container loading">Caricamento..</div>
     }
 
     if (error) {
@@ -53,6 +53,7 @@ export default function SinglePost() {
 
     const newId = parseInt(id);
 
+    // funzioni per mostrare il post precedente e successivo
     function previousPost() {
 
         const previousId = newId - 1 >= 1 ? newId - 1 : id;
@@ -67,13 +68,17 @@ export default function SinglePost() {
 
 
     return (
-        <section>
-            <h2>{singlePost.title}</h2>
-            <p>{singlePost.body}</p>
-            <button onClick={() => navigate(-1)}>Torna alla pagina precedente</button>
-            <button onClick={previousPost} disabled={id <= 1}>Post precedente</button>
-            <button onClick={nextPost} disabled={id >= 100}>Post successivo</button>
-        </section>
+
+        <div className="main-container">
+            <section className="post-section">
+                <h2>{singlePost.title}</h2>
+                <p>{singlePost.body}</p>
+                <button onClick={() => navigate(-1)}>Torna alla pagina precedente</button>
+                <button onClick={previousPost} disabled={id <= 1}>Post precedente</button>
+                <button onClick={nextPost} disabled={id >= 100}>Post successivo</button>
+            </section>
+        </div>
+
     )
 
 }

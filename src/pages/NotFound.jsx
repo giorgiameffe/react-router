@@ -3,9 +3,9 @@ import { Link } from "react-router-dom"
 
 export default function NotFound() {
     return (
-        <div>
+        <div className="not-found main-container">
             <h1>Ops..Pagina non trovata!</h1>
-            <Link to='/'>Torna alla home</Link>
+            <Link className="not-found-link" to='/'>Torna alla home</Link>
         </div>
     )
 }

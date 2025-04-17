@@ -2,6 +2,10 @@
 
 export default function AboutUs() {
 
-    return <h2>About us</h2>
+    return (
 
+        <div className="main-container">
+            <h2>About us</h2>
+        </div>
+    )
 }

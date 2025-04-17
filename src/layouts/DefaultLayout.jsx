@@ -8,7 +8,6 @@ export default function DefaultLayout() {
     return (
         <>
             <header>
-                <h1>React Blog Pages</h1>
                 <Navbar />
             </header>
             <main>
