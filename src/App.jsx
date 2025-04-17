@@ -27,7 +27,7 @@ function App() {
             <Route path="/posts/:id" element={<SinglePost />} />
           </Route>
           {/* Rotta catch all */}
-          <Route path="*" element={<NotFound />}></Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>

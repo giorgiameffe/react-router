@@ -15,7 +15,9 @@ export default function Posts() {
 
     function getPosts() {
         axios.get(postsEndpoint)
-            .then(res => setPosts(res.data))
+            .then(res => {
+                setPosts(res.data)
+            })
             .catch(error => alert('Qualcosa è andato storto, riprova più tardi'))
     }
 
